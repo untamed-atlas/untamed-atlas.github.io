@@ -1,0 +1,302 @@
+<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Untamed cortical atlas</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" type="image/png" href="./index_files/icon.png">
+    <link rel="stylesheet" href="./index_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./index_files/font-awesome.min.css">
+    <link rel="stylesheet" href="./index_files/codemirror.min.css">
+    <link rel="stylesheet" href="./index_files/app.css">
+    <link rel="stylesheet" href="./index_files/bootstrap.min(1).css">
+
+    <!-- <script type="text/javascript" async="" src="./index_files/analytics.js"></script>
+    <script type="text/javascript" async="" src="./index_files/analytics(1).js"></script> -->
+    <script async="" src="./index_files/js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-110862391-3');
+    </script>
+
+    <script src="./index_files/jquery.min.js"></script>
+    <script src="./index_files/bootstrap.min.js"></script>
+    <script src="./index_files/codemirror.min.js"></script>
+    <script src="./index_files/clipboard.min.js"></script>
+
+    <script src="./index_files/app.js"></script>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-DG5ZZGKNKT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DG5ZZGKNKT');
+</script>         -->
+    
+<body data-gr-c-s-loaded="true">
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-12 text-center">
+                Untamed: Cortical parcellation using overlapping spatial maps from tensor decomposition on resting-state fMRI with graph representation learning
+            <br /><br />
+            <small>
+                CVPR2023
+            </small>
+            <br /><br />
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://perfectroc.com">
+                          Yijun Liu
+                        </a><sup>1</sup>
+                    </li>
+                    <li>
+                        <a href="https://silencer1127.github.io/">
+                          Jian (Andrew) Li
+                        </a><sup>2, 3</sup>
+                    </li>                    
+                   <li>
+                        <a href="https://scholar.google.com/citations?user=Nw_WblYAAAAJ&hl=en&oi=ao">
+                            Jessica L. Wisnowski
+                        </a><sup>4, 5</sup>
+                    </li>
+
+                    <li>
+                        <a href="https://scholar.google.com/citations?user=UUTFsUAAAAAJ&hl=en&oi=ao">
+                            Richard M. Leahy
+                        </a><sup>1</sup>
+                    </li>                      
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <sup>1</sup>Ming Hsieh Department of Electrical and Computer Engineering, University of Southern California
+                    </li>
+                    <br>
+                    <li>
+                        <sup>2</sup>Athinoula A. Martinos Center for Biomedical Imaging, Massachusetts General Hospital and Harvard Medical School
+                    </li>
+                    <br>
+                    <li>
+                        <sup>3</sup>Center for Neurotechnology and Neurorecovery, Department of Neurology, Massachusetts General Hospital and Harvard Medical School
+                    </li>
+                    <br>
+                    <li>
+                        <sup>4</sup>Radiology and Pediatrics, Division of Neonatology, Children’s Hospital Los Angeles
+                    </li>
+                    <br>
+                    <li>
+                        <sup>5</sup>Keck School of Medicine, University of Southern California
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <ul class="nav nav-pills nav-justified">
+                    <li>
+                        <a href="https://arxiv.org/abs/2211.06956" target='_blank'>
+                        <img src="./index_files/images/paper.png" height="80px"><br>
+                            <h4><strong>Main Paper</strong></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./MinD-vis_low_res_Full.pdf" target='_blank'>
+                        <img src="./index_files/images/paper.png" height="80px"><br>
+                            <h4><strong>Main Paper (Low Resolution)</strong></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./supplementary.pdf" target='_blank'>
+                        <img src="./index_files/images/supp.png" height="80px"><br>
+                            <h4><strong>Supp. Materials</strong></h4>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="#video">
+                        <img src="index_files/images/youtube_icon_dark.png" height="80px"><br>
+                            <h4><strong>Video</strong></h4>
+                        </a>
+                    </li> -->
+                     <!-- <li>
+                        <a href="#dataset">
+                        <img src="./index_files/images/data.png" height="80px"><br>
+                            <h4><strong>Data</strong></h4>
+                        </a>
+                    </li> -->
+                    <li>
+                        <a href="https://github.com/snapfinger/Untamed">
+                        <img src="./index_files/images/github_pad.png" height="80px"><br>
+                            <h4><strong>Code</strong></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#BibTeX">
+                        <img src="./index_files/images/bibtex.jpg" height="80px"><br>
+                            <h4><strong>BibTeX</strong></h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Overview
+                </h3>
+                <img src="./index_files/images/first_fig.png" class="img-responsive" alt="overview"><br>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Motivation
+                </h3>
+                <p class="text-justify">
+                    Decoding visual stimuli from brain recordings aims to deepen our understanding of the human visual system and build a solid foundation for bridging human vision and computer vision through the Brain-Computer Interface. 
+                    However, due to the scarcity of data annotations and the complexity of underlying brain information, it is challenging to decode images with faithful details and meaningful semantics. 
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Contribution
+                </h3>
+                <p class="text-justify">
+                    In this work, we present <b>MinD-Vis</b>: Sparse <b>M</b>asked Bra<b>in</b> Modeling with <b>D</b>ouble<b>-</b>Conditioned Diffusion Model for <b>Vis</b>ion Decoding.                   
+                    Specifically, by boosting the information capacity of representations learned in a large-scale resting-state fMRI dataset, we show that our MinD-Vis framework reconstructed <b>highly plausible images with semantically matching details</b> from brain recordings with very few training pairs. 
+                    We benchmarked our model and our method outperformed state-of-the-arts in both <b>semantic mapping</b> (100-way semantic classification) and <b>generation quality</b> (FID) by <b>66%</b> and <b>41%</b>, respectively.
+                    Exhaustive ablation studies are conducted to analyze our framework. 
+                </p>
+            </div>
+        </div>
+
+        <!-- <div class="row" id="video">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Video</h3><p style="color:blue;font-size:11px;">(contains audio w/ subtitles)</p>
+                <div class="text-center">
+                    <video id="video_id" width="100%" controls="" controlsList="nodownload">>
+                        <source src="./index_files/videos/video.mp4" type="video/mp4">
+                        <track label="English" kind="subtitles" srclang="en" src="./index_files/videos/captions.vtt">
+                    </video>
+
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                        var video = document.querySelector('#video_id'); // get the video element
+                        var tracks = video.textTracks; // one for each track element
+                        var track = tracks[0]; // corresponds to the first track element
+                        track.mode = 'hidden';});
+                    </script>
+
+                </div>
+            </div>
+        </div> -->
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Highlights
+                </h3>
+                <p class="text-justify">
+                    <ul>
+                        <li>
+                            A human visual decoding system that only reply on limited annotations.
+                        </li>
+                        <li>
+                            State-of-the-art 100-way top-1 classification accuracy on GOD dataset: <b>23.9%</b>, outperforming the previous best by <b>66%</b>.
+                        </li>
+                        <li>
+                            State-of-the-art generation quality (FID) on GOD dataset: <b>1.67</b>, outperforming the previous best by <b>41%</b>.
+                        </li>
+                        <li>
+                            For the first time, we show that non-invasive brain recordings can be used to decode images with similar performance as invasive measures.
+                        </li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    MinD-Vis
+                </h3>
+                <img src="./index_files/images/flowchart.png" class="img-responsive" alt="method"><br>
+                <p class="text-justify">
+                    <b>Stage A</b> (left): Self-supervised pre-training on large-scale fMRI dataset using Sparse-Coding based Masked Brain Modeling <b>(SC-MBM)</b>;
+                    <b>Stage B</b> (right): Double-Conditioned Latent Diffusion Model <b>(DC-LDM)</b> for image generation conditioned on brain recordings.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Results compared with benchmarks
+                </h3>
+                <img src="./index_files/images/compare_figs.png" class="img-responsive" alt="result with sota"><br>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Generation Consistency &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Replication Dataset
+                </h3>
+                <img src="./index_files/images/more_result.png" class="img-responsive" alt="consistency and bold5000"><br>
+            </div>
+        </div>
+
+
+        <div class="row" id="BibTeX">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    BibTeX
+                </h3>
+               If you find our data or project useful in your research, please cite:
+                <pre class="w3-panel w3-leftbar w3-light-grey" style="white-space: pre-wrap; font-family: monospace; font-size: 10px">
+@InProceedings{chen_2022_arXiv,
+    author    = {Chen, Zijiao and Qing, Jiaxin and Xiang, Tiange and Yue, Wan Lin and Zhou, Juan Helen},
+    title     = {Seeing Beyond the Brain: Masked Modeling Conditioned Diffusion Model for Human Vision Decoding},
+    booktitle = {arXiv},
+    month     = {November},
+    year      = {2022},
+    url       = {https://arxiv.org/abs/2211.06956}
+}</pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgments
+                </h3>
+                The website template was borrowed from <a href="https://mind-vis.github.io/">mind-vis</a>.
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+
+</body></html>
