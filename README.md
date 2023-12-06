@@ -1,2 +1,2 @@
-# mind-vis.github.io
+# Untamed atlas
 Project page.
