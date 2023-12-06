@@ -158,40 +158,70 @@
             </div>
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Overview
+                    <center>Atlas Visualization</center>
                 </h3>
-                <img src="./index_files/images/first_fig.png" class="img-responsive" alt="overview"><br>
+                <img src="./index_files/images/untamed_framework.png" class="img-responsive" alt="visualization"><br>
             </div>
-        </div>
+        </div> -->
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Motivation
+                    <center>Highlights</center>
                 </h3>
                 <p class="text-justify">
-                    Decoding visual stimuli from brain recordings aims to deepen our understanding of the human visual system and build a solid foundation for bridging human vision and computer vision through the Brain-Computer Interface. 
-                    However, due to the scarcity of data annotations and the complexity of underlying brain information, it is challenging to decode images with faithful details and meaningful semantics. 
+                    <ul>
+                        <li>
+                            Bridging the gap between brain networks (without biologically impausible constraints) with cortical parcellation
+                        </li>
+                        <li>
+                            Superior to or comparable to popular atlases in various aspects (RSFC homogeneity, task contrasts alignment, cytoarchitectonics alignment)
+                        </li>
+                        <li>
+                            Highly automated computational pipeline, allowing for rapid adaptation to new datasets and the generation of custom parcellations in just minutes once the brain networks are obtained
+                        </li>
+                    </ul>
                 </p>
             </div>
         </div>
 
+
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    <center>Overview</center>
+                </h3>
+                <p class="text-justify">
+                    Cortical parcellation has long been a cornerstone in the field of neuroscience, enabling the cerebral cortex to be partitioned into distinct, non-overlapping regions that facilitate the interpretation and comparison of complex neuroscientific data. The use of resting-state functional magnetic resonance imaging (rsfMRI) has been integral in this endeavor, allowing for the non-invasive measurement of in vivo brain activity. Despite the advances in rsfMRI, a gap persists in tightly integrating it with cortical parcellation to harness the full potential of understanding intrinsic functional brain networks. Addressing this, we introduce a novel parcellation framework that integrates NASCAR, a three-dimensional tensor decomposition method, with state-of-the-art graph representation learning to produce cortical parcellations that faithfully represent neural activity patterns without the limitations of traditional constraints such as statistical independence or orthogonality. Our findings demonstrate that these parcellations are comparable or superior to established atlases in terms of RSFC homogeneity, task contrast alignment, and architectonic map alignment despite visual differences. Our methodological pipeline is highly automated, allowing for rapid adaptation to new datasets and the generation of custom parcellations in just minutes, a significant advancement over existing methods that require extensive manual input. We present this integrated approach, dubbed 'Untamed', as a robust and efficient tool, poised to significantly contribute to the fields of brain network analysis and parcellation in neuroscientific research.  
+                </p>
+            </div>
+        </div> -->
+
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Contribution
+                    <center>Example Visualization</center>
                 </h3>
                 <p class="text-justify">
-                    In this work, we present <b>MinD-Vis</b>: Sparse <b>M</b>asked Bra<b>in</b> Modeling with <b>D</b>ouble<b>-</b>Conditioned Diffusion Model for <b>Vis</b>ion Decoding.                   
-                    Specifically, by boosting the information capacity of representations learned in a large-scale resting-state fMRI dataset, we show that our MinD-Vis framework reconstructed <b>highly plausible images with semantically matching details</b> from brain recordings with very few training pairs. 
-                    We benchmarked our model and our method outperformed state-of-the-arts in both <b>semantic mapping</b> (100-way semantic classification) and <b>generation quality</b> (FID) by <b>66%</b> and <b>41%</b>, respectively.
-                    Exhaustive ablation studies are conducted to analyze our framework. 
+                    Below demonstrates the 100-parcel Untamed and Schaefer atlas overlaid on Human Connectome Project (HCP) group language task activation map.
                 </p>
+                <img src="./index_files/images/task_compare.png" class="img-responsive" alt="vis"><br>
             </div>
         </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    <center>Framework</center>
+                </h3>
+                <img src="./index_files/images/untamed_framework.png" class="img-responsive" alt="framework"><br>
+            </div>
+        </div>
+
 
         <!-- <div class="row" id="video">
             <div class="col-md-8 col-md-offset-2">
@@ -214,31 +244,7 @@
             </div>
         </div> -->
         
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Highlights
-                </h3>
-                <p class="text-justify">
-                    <ul>
-                        <li>
-                            A human visual decoding system that only reply on limited annotations.
-                        </li>
-                        <li>
-                            State-of-the-art 100-way top-1 classification accuracy on GOD dataset: <b>23.9%</b>, outperforming the previous best by <b>66%</b>.
-                        </li>
-                        <li>
-                            State-of-the-art generation quality (FID) on GOD dataset: <b>1.67</b>, outperforming the previous best by <b>41%</b>.
-                        </li>
-                        <li>
-                            For the first time, we show that non-invasive brain recordings can be used to decode images with similar performance as invasive measures.
-                        </li>
-                    </ul>
-                </p>
-            </div>
-        </div>
-
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
                     MinD-Vis
@@ -249,26 +255,49 @@
                     <b>Stage B</b> (right): Double-Conditioned Latent Diffusion Model <b>(DC-LDM)</b> for image generation conditioned on brain recordings.
                 </p>
             </div>
-        </div>
+        </div> -->
 
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
                     Results compared with benchmarks
                 </h3>
                 <img src="./index_files/images/compare_figs.png" class="img-responsive" alt="result with sota"><br>
             </div>
-        </div>
+        </div> -->
 
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Generation Consistency &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Replication Dataset
+                    <center>Example alignment with functional contrasts (from HCP)</center>
                 </h3>
                 <img src="./index_files/images/more_result.png" class="img-responsive" alt="consistency and bold5000"><br>
             </div>
-        </div>
+        </div> -->
 
+
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    <center>Methods</center>
+                </h3>
+                <h4>
+                <p class="text-justify">
+                    <ul>
+                        <li>
+                            BrainSync
+                        </li>
+                        <li>
+                            NASCAR
+                        </li>
+                        <li>
+                            NetMF
+                        </li>
+                    </ul>
+                </h4>
+                </p>
+            </div>
+        </div> -->
 
 <!--         <div class="row" id="BibTeX">
             <div class="col-md-8 col-md-offset-2">
