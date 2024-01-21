@@ -1,2 +1,4 @@
 # Untamed atlas
-Project page.
+Project page. 
+
+Used the template from https://mind-vis.github.io
