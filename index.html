@@ -34,8 +34,9 @@
 <body>
     <div class="container" id="main">
         <div class="row">
-            <h1 class="col-md-12 text-center" style="margin-top: 50px; font-size: 2.5em;">
-                Untamed: Unconstrained Tensor Decomposition and <br> Graph Node Embedding for Cortical Parcellation
+            <h1 class="col-md-12 text-center" style="margin-top: 50px; font-size: 2.0em; font-weight: 400;">
+                Untamed: Unconstrained Tensor Decomposition <br> and Graph Node Embedding for Cortical Parcellation
+                </span>
                 <br /><br />
             </h1>
         </div>
@@ -95,6 +96,18 @@
             </div>
         </div>
 
+        <!-- Introduction Section -->
+        <div class="row" style="margin-top: 40px;">
+            <div class="col-md-8 col-md-offset-2">
+                <h2><center>Introduction</center></h2>
+                <div style="margin-top: 20px; line-height: 1.6; text-align: justify;">
+                    <p>
+                        Untamed is a fully automated framework for cortical parcellation that bridges large-scale network identification and region-level parcellation from resting-state fMRI. It integrates unconstrained tensor decomposition via NASCAR, without relying on strong assumptions like statistical independence, with graph-based node embeddings to generate spatially coherent, functionally homogeneous cortical regions. Compared to existing atlases, Untamed delivers superior or comparable performance in functional connectivity homogeneity and task alignment across multiple datasets.
+                    </p>
+                </div>
+            </div>
+        </div>
+
         <!-- Framework Image -->
         <div class="row" style="margin-top: 40px;">
             <div class="col-md-8 col-md-offset-2">
@@ -135,6 +148,9 @@
                         </div>
                         <div class="panel-body" style="padding: 0;">
                             <div id="rsfc-viewer" style="height: 600px; width: 100%;"></div>
+                            <p class="text-muted" style="font-size: 0.97em; margin-top: -40px; text-align: justify; line-height: 1.6;">
+                                Weighted average RSFC homogeneity on the Yale / HCP dataset. Each bar plot depicts the subject-wise RSFC weighted average homogeneity, averaged across test subjects, for each baseline and the Untamed atlas, with matched parcel numbers for the left and right hemispheres. The error bars represent the standard error across all subjects. 
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -164,7 +180,28 @@
                         </div>
                         <div class="panel-body" style="padding: 0;">
                             <div id="task-viewer" style="height: 600px; width: 100%;"></div>
+                            <p class="text-muted" style="font-size: 0.97em; margin-top: -40px; text-align: justify; line-height: 1.6;">
+                                Weighted average task contrast variance evaluated on (a) MDTB (b) HCP test subjects. Each violin plot depicts the alignment with task contrast maps, computed for the baseline and the Untamed atlas, with matched parcel numbers for the left and right hemispheres.
+                            </p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ablation Studies Section -->
+        <div class="row" style="margin-top: 40px;">
+            <div class="col-md-8 col-md-offset-2">
+                <h2><center>Selected ablation study</center></h2>
+                
+                <!-- Input Feature Map Study -->
+                <div style="margin-top: 30px;">
+                    <h3><center>Input spatial feature map: NASCAR vs ICA</center></h3>
+                    <div style="border: 2px dotted #999; padding: 20px; display: inline-block; width: 100%;">
+                        <img src="./index_files/images/ablation_ica_vs_nascar.png" class="img-responsive" alt="NASCAR vs ICA Comparison" style="width: 100%; display: block; margin: 0 auto;" />
+                        <p class="text-muted" style="font-size: 0.97em; margin-top: 5px; text-align: justify; line-height: 1.6;">
+                            Weighted average RSFC homogeneity on the HCP dataset. Each bar plot depicts the subject-wise RSFC weighted average homogeneity, averaged across test subjects, for each atlas generated from ICA maps and the Untamed atlas (generated from NASCAR maps). Parcel numbers matched for the left and right hemispheres. The error bars represent the standard error across all subjects. The ICA baselines, derived from and optimized through hyperparameter tuning on the same HCP dataset, benefit from this dataset-specific tuning. In contrast, the Untamed atlas was generated using the independent GSP dataset with hyperparameters tuned on GSP. The ICA results represent the maximum homogeneity achievable under optimal hyperparameter settings for the HCP dataset.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -199,6 +236,14 @@
                 background-color: #f8f8f8;
                 border-bottom: 1px solid #ddd;
                 padding: 0;
+            }
+            /* Minimize gap between ablation viewer and caption */
+            #ablation-viewer, #ablation-viewer > div, #ablation-viewer canvas {
+                margin-bottom: 0 !important;
+                padding-bottom: 0 !important;
+            }
+            #ablation-viewer + .text-muted {
+                margin-top: -50px !important;
             }
         </style>
 
