@@ -95,63 +95,76 @@
             </div>
         </div>
 
-        <!-- RSFC Homogeneity Visualization -->
-        <div class="row">
+        <!-- Framework Image -->
+        <div class="row" style="margin-top: 40px;">
             <div class="col-md-8 col-md-offset-2">
-                <h3><center>Resting-state functional connectivity (RSFC)homogeneity</center></h3>
-                <p class="text-center" style="color: #666; margin-top: -10px; margin-bottom: 20px;">
-                    <small><i>Note: Higher values indicate better homogeneity</i></small>
-                </p>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <ul class="nav nav-tabs" role="tablist" style="border-bottom: none;">
-                            <li role="presentation" class="active">
-                                <a href="#yale" role="tab" data-toggle="tab" onclick="loadImage('yale', 'rsfc')" 
-                                   style="border: none; color: #333; font-weight: 500;">
-                                    Yale
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#hcp" role="tab" data-toggle="tab" onclick="loadImage('hcp', 'rsfc')"
-                                   style="border: none; color: #333; font-weight: 500;">
-                                    HCP
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="panel-body" style="padding: 0;">
-                        <div id="rsfc-viewer" style="height: 600px; width: 100%;"></div>
-                    </div>
+                <h3><center>Framework</center></h3>
+                <div style="border: 2px dotted #999; padding: 20px; display: inline-block; width: 100%;">
+                    <img src="./index_files/images/untamed_framework.jpg" class="img-responsive" alt="Untamed Framework" style="width: 100%;">
                 </div>
             </div>
         </div>
 
-        <!-- Task Contrast Alignment Visualization -->
+        <!-- Performance Section -->
         <div class="row" style="margin-top: 40px;">
             <div class="col-md-8 col-md-offset-2">
-                <h3><center>Task contrast alignment</center></h3>
-                <p class="text-center" style="color: #666; margin-top: -10px; margin-bottom: 20px;">
-                    <small><i>Note: Smaller variance values indicate better alignment</i></small>
-                </p>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <ul class="nav nav-tabs" role="tablist" style="border-bottom: none;">
-                            <li role="presentation" class="active">
-                                <a href="#mdtb-task" role="tab" data-toggle="tab" onclick="loadImage('mdtb', 'task')" 
-                                   style="border: none; color: #333; font-weight: 500;">
-                                    MDTB
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#hcp-task" role="tab" data-toggle="tab" onclick="loadImage('hcp', 'task')"
-                                   style="border: none; color: #333; font-weight: 500;">
-                                    HCP
-                                </a>
-                            </li>
-                        </ul>
+                <h2><center>Performance</center></h2>
+                
+                <!-- RSFC Homogeneity Visualization -->
+                <div style="margin-top: 30px;">
+                    <h3><center>Resting-state functional connectivity (RSFC)homogeneity</center></h3>
+                    <p class="text-center" style="color: #666; margin-top: -10px; margin-bottom: 20px;">
+                        <small><i>Note: Higher values indicate better homogeneity</i></small>
+                    </p>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <ul class="nav nav-tabs" role="tablist" style="border-bottom: none;">
+                                <li role="presentation" class="active">
+                                    <a href="#yale" role="tab" data-toggle="tab" onclick="loadImage('yale', 'rsfc')" 
+                                       style="border: none; color: #333; font-weight: 500;">
+                                        Yale
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#hcp" role="tab" data-toggle="tab" onclick="loadImage('hcp', 'rsfc')"
+                                       style="border: none; color: #333; font-weight: 500;">
+                                        HCP
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="panel-body" style="padding: 0;">
+                            <div id="rsfc-viewer" style="height: 600px; width: 100%;"></div>
+                        </div>
                     </div>
-                    <div class="panel-body" style="padding: 0;">
-                        <div id="task-viewer" style="height: 600px; width: 100%;"></div>
+                </div>
+
+                <!-- Task Contrast Alignment Visualization -->
+                <div style="margin-top: 40px;">
+                    <h3><center>Task contrast alignment</center></h3>
+                    <p class="text-center" style="color: #666; margin-top: -10px; margin-bottom: 20px;">
+                        <small><i>Note: Lower values indicate better alignment</i></small>
+                    </p>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <ul class="nav nav-tabs" role="tablist" style="border-bottom: none;">
+                                <li role="presentation" class="active">
+                                    <a href="#mdtb-task" role="tab" data-toggle="tab" onclick="loadImage('mdtb', 'task')" 
+                                       style="border: none; color: #333; font-weight: 500;">
+                                        MDTB
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#hcp-task" role="tab" data-toggle="tab" onclick="loadImage('hcp', 'task')"
+                                       style="border: none; color: #333; font-weight: 500;">
+                                        HCP
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="panel-body" style="padding: 0;">
+                            <div id="task-viewer" style="height: 600px; width: 100%;"></div>
+                        </div>
                     </div>
                 </div>
             </div>
