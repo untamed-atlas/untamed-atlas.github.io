@@ -1,341 +1,263 @@
-<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-    <title>Untamed cortical atlas</title>
-
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Untamed atlas</title>
+    <meta name="description" content="Untamed: Unconstrained Tensor Decomposition and Graph Node Embedding for Cortical Parcellation">
 
-  <link rel="icon" type="image/png" href="./index_files/icon.png">
+    <link rel="icon" type="image/png" href="./index_files/icon.png">
     <link rel="stylesheet" href="./index_files/bootstrap.min.css">
     <link rel="stylesheet" href="./index_files/font-awesome.min.css">
     <link rel="stylesheet" href="./index_files/codemirror.min.css">
     <link rel="stylesheet" href="./index_files/app.css">
     <link rel="stylesheet" href="./index_files/bootstrap.min(1).css">
 
-    <!-- <script type="text/javascript" async="" src="./index_files/analytics.js"></script>
-    <script type="text/javascript" async="" src="./index_files/analytics(1).js"></script> -->
-<!--     <script async="" src="./index_files/js"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-110862391-3');
-    </script> -->
+    <!-- Visualization libraries -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/MTLLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.1.0/openseadragon.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.1.0/openseadragon.min.css">
 
     <script src="./index_files/jquery.min.js"></script>
     <script src="./index_files/bootstrap.min.js"></script>
     <script src="./index_files/codemirror.min.js"></script>
     <script src="./index_files/clipboard.min.js"></script>
-
     <script src="./index_files/app.js"></script>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9314Q0F807"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-9314Q0F807');
-</script>
-    
-<body data-gr-c-s-loaded="true">
+<body>
     <div class="container" id="main">
         <div class="row">
-            <h1 class="col-md-12 text-center">
-                Graph Learning for Cortical Parcellation from <br>Tensor Decompositions of Resting-State fMRI
-            <br /><br />
-            <small>
-                Untamed atlas
-            </small>
-            <br /><br />
+            <h1 class="col-md-12 text-center" style="margin-top: 50px; font-size: 2.5em;">
+                Untamed: Unconstrained Tensor Decomposition and <br> Graph Node Embedding for Cortical Parcellation
+                <br /><br />
             </h1>
         </div>
+
+        <!-- Authors section -->
         <div class="row">
             <div class="col-md-12 text-center">
                 <ul class="list-inline">
-                    <li>
-                        <a href="https://perfectroc.com">
-                          Yijun Liu
-                        </a><sup>1</sup>
-                    </li>
-                    <li>
-                        <a href="https://silencer1127.github.io/">
-                          Jian (Andrew) Li
-                        </a><sup>2, 3</sup>
-                    </li>                    
-                   <li>
-                        <a href="https://scholar.google.com/citations?user=Nw_WblYAAAAJ&hl=en&oi=ao">
-                            Jessica L. Wisnowski
-                        </a><sup>4, 5</sup>
-                    </li>
-
-                    <li>
-                        <a href="https://scholar.google.com/citations?user=UUTFsUAAAAAJ&hl=en&oi=ao">
-                            Richard M. Leahy
-                        </a><sup>1</sup>
-                    </li>                      
+                    <li><a href="https://perfectroc.com">Yijun Liu</a><sup>1</sup></li>
+                    <li><a href="https://silencer1127.github.io/">Jian (Andrew) Li</a><sup>2, 3</sup></li>
+                    <li><a href="https://scholar.google.com/citations?user=Nw_WblYAAAAJ&hl=en&oi=ao">Jessica L. Wisnowski</a><sup>4, 5</sup></li>
+                    <li><a href="https://scholar.google.com/citations?user=UUTFsUAAAAAJ&hl=en&oi=ao">Richard M. Leahy</a><sup>1</sup></li>
                 </ul>
             </div>
         </div>
 
+        <!-- Affiliations section -->
         <div class="row">
             <div class="col-md-12 text-center">
                 <ul class="list-inline">
-                    <li>
-                        <sup>1</sup>Ming Hsieh Department of Electrical and Computer Engineering, University of Southern California
-                    </li>
+                    <li><sup>1</sup>Ming Hsieh Department of Electrical and Computer Engineering, University of Southern California</li>
                     <br>
-                    <li>
-                        <sup>2</sup>Athinoula A. Martinos Center for Biomedical Imaging, Massachusetts General Hospital and Harvard Medical School
-                    </li>
+                    <li><sup>2</sup>Athinoula A. Martinos Center for Biomedical Imaging, Massachusetts General Hospital and Harvard Medical School</li>
                     <br>
-                    <li>
-                        <sup>3</sup>Center for Neurotechnology and Neurorecovery, Department of Neurology, Massachusetts General Hospital and Harvard Medical School
-                    </li>
+                    <li><sup>3</sup>Center for Neurotechnology and Neurorecovery, Department of Neurology, Massachusetts General Hospital and Harvard Medical School</li>
                     <br>
-                    <li>
-                        <sup>4</sup>Radiology and Pediatrics, Division of Neonatology, Children’s Hospital Los Angeles
-                    </li>
+                    <li><sup>4</sup>Radiology and Pediatrics, Division of Neonatology, Children's Hospital Los Angeles</li>
                     <br>
-                    <li>
-                        <sup>5</sup>Keck School of Medicine, University of Southern California
-                    </li>
+                    <li><sup>5</sup>Keck School of Medicine, University of Southern California</li>
                 </ul>
             </div>
         </div>
 
+        <!-- Navigation section -->
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center">
                 <ul class="nav nav-pills nav-justified">
                     <li>
-                        <a href="https://www.biorxiv.org/content/10.1101/2024.01.05.574423v1" target='_blank'>
-                        <img src="./index_files/images/paper.png" height="80px"><br>
+                        <a href="https://untamed-atlas.github.io/" target='_blank'>
+                            <img src="./index_files/images/paper.png" height="80px"><br>
                             <h4><strong>Manuscript</strong></h4>
                         </a>
                     </li>
                     <li>
-                        <a href="https://perfectroc.com/publications/Yijun_BioKDD23.pdf" target='_blank'>
-                        <img src="./index_files/images/supp.png" height="80px"><br>
-                            <h4><strong>Talk@BioKDD23</strong></h4>
-                        </a>
-                    </li>
-<!--                     <li>
-                        <a href="./supplementary.pdf" target='_blank'>
-                        <img src="./index_files/images/supp.png" height="80px"><br>
-                            <h4><strong>Supp. Materials</strong></h4>
-                        </a>
-                    </li> -->
-                    <!-- <li>
-                        <a href="#video">
-                        <img src="index_files/images/youtube_icon_dark.png" height="80px"><br>
-                            <h4><strong>Video</strong></h4>
-                        </a>
-                    </li> -->
-                     <li>
                         <a href="https://doi.org/10.6084/m9.figshare.24750117.v2" target='_blank'>
-                        <img src="./index_files/images/atlas_image.png" height="80px"><br>
+                            <img src="./index_files/images/atlas_image.png" height="80px"><br>
                             <h4><strong>Atlases</strong></h4>
                         </a>
                     </li>
                     <li>
                         <a href="https://github.com/snapfinger/Untamed">
-                        <img src="./index_files/images/github_pad.png" height="80px"><br>
+                            <img src="./index_files/images/github_pad.png" height="80px"><br>
                             <h4><strong>Code</strong></h4>
                         </a>
                     </li>
-<!--                     <li>
-                        <a href="#BibTeX">
-                        <img src="./index_files/images/bibtex.jpg" height="80px"><br>
-                            <h4><strong>BibTeX</strong></h4>
-                        </a>
-                    </li> -->
                 </ul>
             </div>
         </div>
 
-<!--         <!-- <div class="row">
+        <!-- RSFC Homogeneity Visualization -->
+        <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    <center>Atlas Visualization</center>
-                </h3>
-                <img src="./index_files/images/untamed_framework.png" class="img-responsive" alt="visualization"><br>
-            </div>
-        </div> -->
-
-
-         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    <center>New manuscript with updated results coming soon</center>
-                </h3>
-             </div>
-        </div>
-
-<!--         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    <center>Highlights</center>
-                </h3>
-                <p class="text-justify">
-                    <ul>
-                        <li>
-                            Bridging the gap between brain networks (without biologically impausible constraints) and cortical parcellation
-                        </li>
-                        <li>
-                            Superior to or comparable to popular atlases in terms of RSFC homogeneity, task contrasts alignment, and cytoarchitectonics alignment
-                        </li>
-                        <li>
-                            Highly automated computational pipeline, allowing for rapid adaptation to new datasets and the generation of custom parcellations in just minutes once the brain networks are obtained
-                        </li>
-                    </ul>
+                <h3><center>Resting-state functional connectivity (RSFC)homogeneity</center></h3>
+                <p class="text-center" style="color: #666; margin-top: -10px; margin-bottom: 20px;">
+                    <small><i>Note: Higher values indicate better homogeneity</i></small>
                 </p>
-            </div>
-        </div>
-
-
-        <!-- <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    <center>Overview</center>
-                </h3>
-                <p class="text-justify">
-                    Cortical parcellation has long been a cornerstone in the field of neuroscience, enabling the cerebral cortex to be partitioned into distinct, non-overlapping regions that facilitate the interpretation and comparison of complex neuroscientific data. The use of resting-state functional magnetic resonance imaging (rsfMRI) has been integral in this endeavor, allowing for the non-invasive measurement of in vivo brain activity. Despite the advances in rsfMRI, a gap persists in tightly integrating it with cortical parcellation to harness the full potential of understanding intrinsic functional brain networks. Addressing this, we introduce a novel parcellation framework that integrates NASCAR, a three-dimensional tensor decomposition method, with state-of-the-art graph representation learning to produce cortical parcellations that faithfully represent neural activity patterns without the limitations of traditional constraints such as statistical independence or orthogonality. Our findings demonstrate that these parcellations are comparable or superior to established atlases in terms of RSFC homogeneity, task contrast alignment, and architectonic map alignment despite visual differences. Our methodological pipeline is highly automated, allowing for rapid adaptation to new datasets and the generation of custom parcellations in just minutes, a significant advancement over existing methods that require extensive manual input. We present this integrated approach, dubbed 'Untamed', as a robust and efficient tool, poised to significantly contribute to the fields of brain network analysis and parcellation in neuroscientific research.  
-                </p>
-            </div>
-        </div> -->
-
-<!--         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    <center>Example Visualization</center>
-                </h3>
-                <p class="text-justify">
-                    Below demonstrates the 100-parcel Untamed and Schaefer atlas overlaid on Human Connectome Project (HCP) group language task activation map.
-                </p>
-                <img src="./index_files/images/task_compare.png" class="img-responsive" alt="vis"><br>
-            </div>
-        </div> -->
-
-
-<!--         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    <center>Framework</center>
-                </h3>
-                <img src="./index_files/images/untamed_framework.png" class="img-responsive" alt="framework"><br>
-            </div>
-        </div> -->
-
-
-        <!-- <div class="row" id="video">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>Video</h3><p style="color:blue;font-size:11px;">(contains audio w/ subtitles)</p>
-                <div class="text-center">
-                    <video id="video_id" width="100%" controls="" controlsList="nodownload">>
-                        <source src="./index_files/videos/video.mp4" type="video/mp4">
-                        <track label="English" kind="subtitles" srclang="en" src="./index_files/videos/captions.vtt">
-                    </video>
-
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-                        var video = document.querySelector('#video_id'); // get the video element
-                        var tracks = video.textTracks; // one for each track element
-                        var track = tracks[0]; // corresponds to the first track element
-                        track.mode = 'hidden';});
-                    </script>
-
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <ul class="nav nav-tabs" role="tablist" style="border-bottom: none;">
+                            <li role="presentation" class="active">
+                                <a href="#yale" role="tab" data-toggle="tab" onclick="loadImage('yale', 'rsfc')" 
+                                   style="border: none; color: #333; font-weight: 500;">
+                                    Yale
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#hcp" role="tab" data-toggle="tab" onclick="loadImage('hcp', 'rsfc')"
+                                   style="border: none; color: #333; font-weight: 500;">
+                                    HCP
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-body" style="padding: 0;">
+                        <div id="rsfc-viewer" style="height: 600px; width: 100%;"></div>
+                    </div>
                 </div>
             </div>
-        </div> -->
-        
-        <!-- <div class="row">
+        </div>
+
+        <!-- Task Contrast Alignment Visualization -->
+        <div class="row" style="margin-top: 40px;">
             <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    MinD-Vis
-                </h3>
-                <img src="./index_files/images/flowchart.png" class="img-responsive" alt="method"><br>
-                <p class="text-justify">
-                    <b>Stage A</b> (left): Self-supervised pre-training on large-scale fMRI dataset using Sparse-Coding based Masked Brain Modeling <b>(SC-MBM)</b>;
-                    <b>Stage B</b> (right): Double-Conditioned Latent Diffusion Model <b>(DC-LDM)</b> for image generation conditioned on brain recordings.
+                <h3><center>Task contrast alignment</center></h3>
+                <p class="text-center" style="color: #666; margin-top: -10px; margin-bottom: 20px;">
+                    <small><i>Note: Smaller variance values indicate better alignment</i></small>
                 </p>
-            </div>
-        </div> -->
-
-        <!-- <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Results compared with benchmarks
-                </h3>
-                <img src="./index_files/images/compare_figs.png" class="img-responsive" alt="result with sota"><br>
-            </div>
-        </div> -->
-
-        <!-- <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    <center>Example alignment with functional contrasts (from HCP)</center>
-                </h3>
-                <img src="./index_files/images/more_result.png" class="img-responsive" alt="consistency and bold5000"><br>
-            </div>
-        </div> -->
-
-
-        <!-- <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    <center>Methods</center>
-                </h3>
-                <h4>
-                <p class="text-justify">
-                    <ul>
-                        <li>
-                            BrainSync
-                        </li>
-                        <li>
-                            NASCAR
-                        </li>
-                        <li>
-                            NetMF
-                        </li>
-                    </ul>
-                </h4>
-                </p>
-            </div>
-        </div> -->
-
-<!--         <div class="row" id="BibTeX">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    BibTeX
-                </h3>
-            If you find our project useful in your research, please cite:
-            <pre class="w3-panel w3-leftbar w3-light-grey" style="white-space: pre-wrap; font-family: monospace; font-size: 10px">
-                @article{liu2024graph_bioarxiv,
-                    title={Graph Learning for Cortical Parcellation from Tensor Decompositions of Resting-State fMRI},
-                    author={Liu, Yijun and Li, Jian and Wisnowski, Jessica L and Leahy, Richard M},
-                    journal={bioRxiv},
-                    pages={2024--01},
-                    year={2024},
-                    publisher={Cold Spring Harbor Laboratory}
-                }</pre>
-            </div>
-        </div> -->
-        
-        <!-- <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Acknowledgments
-                </h3>
-                The website template was borrowed from <a href="https://mind-vis.github.io/">mind-vis</a>.
-                <p></p>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <ul class="nav nav-tabs" role="tablist" style="border-bottom: none;">
+                            <li role="presentation" class="active">
+                                <a href="#mdtb-task" role="tab" data-toggle="tab" onclick="loadImage('mdtb', 'task')" 
+                                   style="border: none; color: #333; font-weight: 500;">
+                                    MDTB
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#hcp-task" role="tab" data-toggle="tab" onclick="loadImage('hcp', 'task')"
+                                   style="border: none; color: #333; font-weight: 500;">
+                                    HCP
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-body" style="padding: 0;">
+                        <div id="task-viewer" style="height: 600px; width: 100%;"></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div> -->
- -->
 
-</body></html>
+        <style>
+            .nav-tabs > li > a {
+                margin-right: 2px;
+                line-height: 1.42857143;
+                border: none;
+                border-radius: 4px 4px 0 0;
+                padding: 10px 20px;
+            }
+            .nav-tabs > li.active > a,
+            .nav-tabs > li.active > a:hover,
+            .nav-tabs > li.active > a:focus {
+                color: #337ab7;
+                background-color: #fff;
+                border: none;
+                border-bottom: 2px solid #337ab7;
+            }
+            .nav-tabs > li > a:hover {
+                border-color: transparent;
+                background-color: #f5f5f5;
+            }
+            .panel {
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            }
+            .panel-heading {
+                background-color: #f8f8f8;
+                border-bottom: 1px solid #ddd;
+                padding: 0;
+            }
+        </style>
+
+        <script>
+            // Initialize OpenSeadragon viewers
+            const rsfcViewer = OpenSeadragon({
+                id: "rsfc-viewer",
+                prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.1.0/images/",
+                showNavigationControl: true,
+                showRotationControl: true,
+                showHomeControl: true,
+                showFullPageControl: true,
+                maxZoomLevel: 10,
+                minZoomLevel: 0.5,
+                visibilityRatio: 1,
+                defaultZoomLevel: 1,
+                animationTime: 0.5
+            });
+
+            const taskViewer = OpenSeadragon({
+                id: "task-viewer",
+                prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.1.0/images/",
+                showNavigationControl: true,
+                showRotationControl: true,
+                showHomeControl: true,
+                showFullPageControl: true,
+                maxZoomLevel: 10,
+                minZoomLevel: 0.5,
+                visibilityRatio: 1,
+                defaultZoomLevel: 1,
+                animationTime: 0.5
+            });
+
+            // Function to load images
+            function loadImage(type, section) {
+                const viewer = section === 'rsfc' ? rsfcViewer : taskViewer;
+                let imagePath;
+                
+                if (section === 'rsfc') {
+                    imagePath = type === 'yale' ? 
+                        './index_files/images/homo_yale_new.png' : 
+                        './index_files/images/homo_hcp_new.png';
+                } else { // task contrast
+                    imagePath = type === 'mdtb' ? 
+                        './index_files/images/task_mdtb_new.png' : 
+                        './index_files/images/task_hcp_new.png';
+                }
+                
+                viewer.open({
+                    type: 'image',
+                    url: imagePath
+                });
+
+                // Update active tab
+                const tabPrefix = section === 'rsfc' ? '' : '-task';
+                $('.nav-tabs li').removeClass('active');
+                $(`a[href="#${type}${tabPrefix}"]`).parent().addClass('active');
+            }
+
+            // Load default images
+            loadImage('yale', 'rsfc');
+            loadImage('yale', 'task');
+
+            // Add click interaction
+            [rsfcViewer, taskViewer].forEach(viewer => {
+                viewer.addHandler('canvas-click', function(event) {
+                    const webPoint = event.position;
+                    const viewportPoint = viewer.viewport.pointFromPixel(webPoint);
+                    console.log('Clicked at:', viewportPoint);
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
